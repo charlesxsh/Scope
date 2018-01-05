@@ -1,6 +1,78 @@
-# ControlPanelTemplate
-
+# Scope - An angular project framework
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+
+This template is perfectly fitted for control panel and dashboard. The project is aimed to provide an universal UI for tools like control panel and dashboard.
+
+## Development Guide
+Code Structure:
+```
+...
+src/app
+  app.module.ts
+  -components /* Put all your components in here */
+  -services /* Put all your services in here */
+...
+```
+## UI Structure
+![](https://github.com/charlesxsh/MarkdownPhotos/blob/master/scope/line.jpg)
+
+## Already Built In:
+### Components:
+MenuComponent
+NavBarComponent
+
+### Services:
+NotificationService
+
+## Documentation
+
+### Exmaple: Notification Function
+Below is an exmple: how to add notification function to dashboard
+#### 1. Create a notification component in components folders (you can use "ng generate component components/notification" or create file by yourself)
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+...
+})
+export class NotificationComponent implements OnInit {
+  constructor() { }
+  ngOnInit() {
+  }
+}
+
+```
+#### 2. Create a menu item in app/components/MenuComponent.ts(Built-in)
+```
+export class MenuComponent implements OnInit {
+  
+  /**
+  * Add your menu item here
+  */
+  menuItems: MenuItem[] = [
+    { name: "Notification", routerLink:"/notification"}
+  ]
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+#### 3. Add router information to appRoutes array in file app/app.module.ts
+The path here should be the same as you defined in menu items previous step
+The \'/\' doesn't need here
+```
+const appRoutes: Routes = [
+  {path:'notification', component: NotificationComponent}
+];
+```
+
+
+## UI
+![](https://github.com/charlesxsh/MarkdownPhotos/blob/master/scope/screenshot.jpg)
+
 
 ## Development server
 
